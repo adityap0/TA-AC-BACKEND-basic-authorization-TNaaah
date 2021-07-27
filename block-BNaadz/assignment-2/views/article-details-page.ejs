@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <article>
+        <h1>Assignment II</h1>
+        <p>Welcome to Express Blog Article Details Page</p>
+      </article>
+      <nav class="header-nav">
+        <ul>
+          <li>
+            <a href="/users/dashboard"><button>back</button></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="article-section">
+        <div class="comment">
+          <form action="/articles/<%= article.slug%>/comment/new" method="POST">
+            <textarea
+              name="content"
+              rows="4"
+              placeholder="Enter Comment"
+            ></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <div>
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="article-list">
+          <li>
+            <h1 style="font-size: 32px"><%= article.title%></h1>
+            <p><%= article.description%></p>
+            <p>
+              <a href="/articles/<%= article.slug%>/likes"
+                >Likes : <%= article.likes%></a
+              >
+            </p>
+            <a href="/articles/<%= article.slug%>/edit"
+              ><button>Edit</button></a
+            >
+            <a href="/articles/<%= article.slug%>/delete"
+              ><button>Delete</button></a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
