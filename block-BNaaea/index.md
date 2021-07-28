@@ -7,7 +7,7 @@ Extend Assignment level 3 from prevoius chapter to
 - view all products
 - view all categories
 - view product based on categories
-
+<!-- To do -->
 - add categories to product
 - list categories
 - user/admin can view product list based on categories
