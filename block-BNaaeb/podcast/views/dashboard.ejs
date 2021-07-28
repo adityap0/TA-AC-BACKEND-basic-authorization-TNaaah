@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user.name%></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <header>
+    <div>
+      <h1><%= user.name%></h1>
+      <p><%= user.access%> User</p>
+    </div>
+    <div>
+      <a href="/users/logout"><button>Logout</button></a>
+      <a href="/admin/podcast/new"><button>Add Podcast</button></a>
+    </div>
+  </header>
+  <main class="main-podcast">
+    <%if(user.access === "FREE"){%>
+    <div class="main-podcast-div FREE">
+      <h1>FREE CONTENT</h1>
+      <ul>
+        <%podcasts.forEach((podcast)=>{ if(podcast.category === "FREE"){%>
+        <li>
+          <div class="content">
+            <img src="<%= podcast.image%>" alt="pic" />
+            <a href="/admin/podcast/<%= podcast.id%>"><%= podcast.name%></a>
+            <p><%= podcast.bio%></p>
+            <a href="/admin/podcast/<%= podcast.id%>/edit"
+              ><button>EDIT</button></a
+            >
+            <a href="/admin/podcast/<%= podcast.id%>/delete"
+              ><button>DELETE</button></a
+            >
+          </div>
+        </li>
+        <%} })%>
+      </ul>
+    </div>
+    <%}%> <%if(user.access === "VIP"){%>
+    <div class="main-podcast-div VIP">
+      <h1>VIP CONTENT</h1>
+      <ul>
+        <%podcasts.forEach((podcast)=>{ if(!(podcast.category === "PREMIUM")){%>
+        <li>
+          <div class="content">
+            <img src="<%= podcast.image%>" alt="pic" />
+            <a href="/admin/podcast/<%= podcast.id%>"><%= podcast.name%></a>
+            <p><%= podcast.bio%></p>
+            <a href="/admin/podcast/<%= podcast.id%>/edit"
+              ><button>EDIT</button></a
+            >
+            <a href="/admin/podcast/<%= podcast.id%>/delete"
+              ><button>DELETE</button></a
+            >
+          </div>
+        </li>
+        <%} })%>
+      </ul>
+    </div>
+    <%}%> <%if(user.access === "PREMIUM"){%>
+    <div class="main-podcast-div PREMIUM">
+      <h1>PREMIUM CONTENT</h1>
+      <ul>
+        <%podcasts.forEach((podcast)=>{%>
+        <li>
+          <div class="content">
+            <img src="<%= podcast.image%>" alt="pic" />
+            <a href="/admin/podcast/<%= podcast.id%>"><%= podcast.name%></a>
+            <p><%= podcast.bio%></p>
+            <a href="/admin/podcast/<%= podcast.id%>/edit"
+              ><button>EDIT</button></a
+            >
+            <a href="/admin/podcast/<%= podcast.id%>/delete"
+              ><button>DELETE</button></a
+            >
+          </div>
+        </li>
+        <% })%>
+      </ul>
+    </div>
+    <%}%>
+  </main>
+</html>
