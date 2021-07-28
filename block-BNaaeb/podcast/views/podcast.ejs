@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Podcast</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <header>
+    <div>
+      <h1>Create Podcast</h1>
+      <p>Welcome to THE Podcast</p>
+    </div>
+    <div>
+      <a href="/admin"><button>Back</button></a>
+    </div>
+  </header>
+  <main>
+    <form action="/admin/podcast/new" method="POST">
+      <input type="text" name="name" placeholder="Enter Podcast Name" />
+      <textarea name="bio" rows="4"></textarea>
+      <input type="text" name="owner" placeholder="Enter Podcast Owner" />
+      <select name="category">
+        <option value="default" disabled selected>Select a category</option>
+        <option value="FREE">FREE</option>
+        <option value="VIP">VIP</option>
+        <option value="PREMIUM">PREMIUM</option>
+      </select>
+      <input type="text" name="image" placeholder="Enter Poster Url" />
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</html>

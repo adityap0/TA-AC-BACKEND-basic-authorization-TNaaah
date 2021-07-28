@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <header>
+    <div>
+      <h1>Signup</h1>
+      <p>Welcome to THE Podcast</p>
+    </div>
+    <div>
+      <a href="/"><button>Back</button></a>
+    </div>
+  </header>
+  <main>
+    <form action="/users/signup" method="POST">
+      <input type="text" name="name" placeholder="Enter Name" />
+      <input type="email" name="email" placeholder="Enter Email" />
+      <input type="password" name="password" placeholder="Enter Password" />
+      <select name="access">
+        <option value="default" disabled selected>Select Your Access</option>
+        <option value="FREE">FREE</option>
+        <option value="VIP">VIP</option>
+        <option value="PREMIUM">PREMIUM</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</html>
