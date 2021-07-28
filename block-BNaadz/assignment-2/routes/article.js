@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
 var Article = require("../models/Article");
+var auth = require("../middlewares/auth");
 
+router.use(auth.loggedInUser);
 router.get("/new", (req, res, next) => {
   res.render("article-new");
 });
@@ -13,6 +15,7 @@ router.post("/new", (req, res, next) => {
     res.redirect("/users/dashboard");
   });
 });
+
 router.get("/:slug", (req, res, next) => {
   let slug = req.params.slug;
   Article.findOne({ slug }, (error, article) => {

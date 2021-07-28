@@ -10,6 +10,7 @@ var session = require("express-session");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var articleRouter = require("./routes/article");
+var auth = require("./middlewares/auth");
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use(
   })
 );
 
+app.use(auth.userInfo);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/articles", articleRouter);
