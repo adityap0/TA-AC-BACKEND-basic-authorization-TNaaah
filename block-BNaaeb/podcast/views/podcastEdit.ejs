@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Podcast</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <header>
+    <div>
+      <h1>Edit Podcast</h1>
+      <p>Welcome to THE Podcast</p>
+    </div>
+    <div>
+      <a href="/admin"><button>Back</button></a>
+    </div>
+  </header>
+  <main>
+    <form action="/admin/podcast/<%= item.id%>/edit" method="POST">
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter Podcast Name"
+        value="<%= item.name%>"
+      />
+      <textarea name="bio" rows="4"><%= item.bio%></textarea>
+      <input
+        type="text"
+        name="owner"
+        placeholder="Enter Podcast Owner"
+        value="<%= item.owner%>"
+      />
+      <select name="category">
+        <option value="default" disabled selected>Select a category</option>
+        <option value="FREE">FREE</option>
+        <option value="VIP">VIP</option>
+        <option value="PREMIUM">PREMIUM</option>
+      </select>
+      <input
+        type="text"
+        name="image"
+        placeholder="Enter Poster Url"
+        value="<%= item.image%>"
+      />
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</html>
